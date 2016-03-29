@@ -1,4 +1,5 @@
 ﻿using UnityEngine;
+using System.Collections;
 using UnityEngine.UI;
 
 public class Welcome : MonoBehaviour {
@@ -13,21 +14,15 @@ public class Welcome : MonoBehaviour {
         panelText = GameObject.Find("WelcomeText").GetComponent<Text>();
         panelText.text = "Welcome";
 
-        // Invoke("HideMessage", 3.5f);
-        StartCoroutine(HideWithDelay());
+        // Invoke("HideMessage", 3.5f);
+        StartCoroutine(HideMessage(2f));
     }
 
-    // Update is called once per frame
-    void Update()
+    IEnumerator HideMessage(float delay = 0f)
     {
-    }
-
-    void HideMessage() {
+        if (delay > 0) {
+            yield return new WaitForSeconds(delay);
+        }
         welcomeCanvas.SetActive(false);
-    }
-
-    IEnumerator HideWithDelay(float delay = 0f) {
-        yield return new WaitForSeconds(delay);
-        HideMessage();
     }
 }
