@@ -15,7 +15,7 @@ public class Welcome : MonoBehaviour {
         panelText.text = "Welcome";
 
         // Invoke("HideMessage", 3.5f);
-        StartCoroutine(HideMessage(2f));
+        StartCoroutine(HideMessage(3.5f));
     }
 
     IEnumerator HideMessage(float delay = 0f)
