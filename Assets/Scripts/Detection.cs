@@ -30,7 +30,7 @@ public class Detection : MonoBehaviour
         if (hitFound)
         {
             // TODO handle hit
-            Debug.Log($"{hitInfo.transform.name} is an item");
+            Debug.Log(hitInfo.transform.name + "is an item");
         }
     }
 }
