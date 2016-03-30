@@ -3,10 +3,11 @@ using System.Collections;
 
 public class Detection : MonoBehaviour
 {
+    public int detectionLayer;
     private const float DetectionFrequency = 0.5f;
     private float nextCheck;
     private RaycastHit hitInfo;
-
+    private const float Range = 5f;
     void Start()
     {
         DetectItems();
@@ -24,10 +25,12 @@ public class Detection : MonoBehaviour
     {
         Vector3 origin = transform.position;
         Vector3 direction = transform.forward;
-        bool hitFound = Physics.Raycast(origin, direction, out hitInfo);
+        bool hitFound = Physics.Raycast(origin, direction, out hitInfo, Range, detectionLayer);
 
-        if (hitFound) {
+        if (hitFound)
+        {
             // TODO handle hit
+            Debug.Log($"{hitInfo.transform.name} is an item");
         }
     }
 }
