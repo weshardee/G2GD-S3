@@ -3,7 +3,7 @@ using System.Collections;
 
 public class Detection : MonoBehaviour
 {
-    public LayerMask detectionLayer;
+    [SerializeField] private LayerMask detectionLayer;
     private const float DetectionFrequency = 0.5f;
     private float nextCheck;
     private RaycastHit hitInfo;
